@@ -1,0 +1,191 @@
+Exercise 1: Find the Maximum and Minimum
+Write a program that receives an array of integers from the user.
+Implement a method to find and display the maximum and minimum values in the array.
+
+    Solution 1:
+        Pas 1: Stocam min/max = list.get(0)
+        Pas 2: Loop (1, n-1) -> if min/max </> elementul curent => min/max = elementul curent
+        Pas 3: Afisare
+
+    Solution 2:
+        int min/max = list.stream().map(Integer::integerValue).min/max().orElse(0);
+
+    De studiat min/max din Stream API.
+
+Exercise 2: Array Sum
+Write a program that receives an array of doubles from the user.
+Implement a method to calculate and display the sum of all the elements in the array.
+
+    Solution 1:
+        Pas 1: int sum = 0;
+        Pas 2: Loop (0, n-1) -> sum += elementul curent;
+        Pas 3: Afisare
+
+    Solution 2:
+        int sum = list.stream().map(Integer::integerValue).sum();
+
+    De studiat sum din Stream API.
+
+Exercise 3: Count Positive and Negative Numbers
+Write a program that receives an array of integers from the user.
+Implement a method to count and display the number of positive and negative numbers in the array.
+
+    Input: 5 valori -> -1 2 5 -9 0
+
+    Solution 1:
+        Pas 1: int posNr = 0, negNr = 0;
+        Pas 2: Loop (0, n-1) -> if element curent > 0 -> posNr++; -> else negNr++;
+            Risc: >= 0 si < 0 SAU > 0 si <= 0
+        Pas 3: Afisare
+
+    Solution 2:
+        https://www.geeksforgeeks.org/stream-filter-java-examples/
+        https://www.baeldung.com/java-ternary-operator
+        list.stream().filter(it -> it > 0 ? posNr++ : negNr++);
+
+Exercise 4: Array Reversal
+Write a program that receives an array of strings from the user.
+Implement a method to reverse the order of elements in the array and display the reversed array.
+
+    Input: list de 5 valori -> 1 2 3 4 5
+    Output: invesat -> 5 4 3 2 1
+
+    Solution 1:
+        Pas 1: List<Integer> reversedArray = new ArrayList<>();
+        Pas 2: Loop (n-1, 0) -> reversedArray.add(list.get(i));
+        Pas 3: Afisare
+
+    Solution 2:
+        https://www.geeksforgeeks.org/reverse-elements-of-a-parallel-stream-in-java/
+        https://stackoverflow.com/questions/24010109/java-8-stream-reverse-order
+
+        2.1
+            List<Integer> list = Arrays.asList(1, 4, 2, 5, 3);
+            Collections.reverse(list);
+            System.out.println(list);
+
+        2.2
+            List<Integer> list = Arrays.asList(1,2,3,4);
+            list.stream()
+                .sorted(Collections.reverseOrder()) // Method on Stream<Integer>
+                .forEach(System.out::println);
+
+Exercise 5: Array Sorting
+Write a program that receives an array of integers from the user.
+Implement a method to sort the array in ascending order using any sorting algorithm (e.g., Bubble Sort, Selection Sort, or Insertion Sort).
+Display the sorted array.
+
+    Solution 1:
+        ori algoritm de sortare -> BubbleSort, MergeSort, QuickSort, SelectionSort, InsertionSort, HeapSort ec
+
+    Solution 2:
+        List<Integer> sortedList = array.stream().sorted().toList();
+
+Exercise 6: Array Average
+Write a program that receives an array of doubles from the user.
+Implement a method to calculate and display the average of all the elements in the array.
+    !!! vezi problema 2 !!!
+
+Exercise 7: Array Search
+Write a program that receives an array of strings from the user and a search string.
+Implement a method to search for the given string in the array and display whether it is found or not.
+
+    Solution 1:
+        Pas 1: Loop(0, n-1) -> if(elementul curent == elementul cautat) ? Afisare true : Afisam false
+
+    Solution 2:
+        https://www.baeldung.com/find-list-element-java --> solutia cu Stream
+
+        Customer james = customers.stream()
+          .filter(customer -> "James".equals(customer.getName()))
+          .findAny()
+          .orElse(null);
+
+        Integer searchedValue = list.stream()
+            .filter(it -> it.equals(valoarea cautata))
+            .findAny()  -> findFirst(), findLast() (o alta alternativa -> reverse list si findFirst())
+            .orElse(0);
+
+
+    !!! Cautarea binara !!!
+    https://www.geeksforgeeks.org/binary-search/
+
+Exercise 8: Array Concatenation
+Write a program that receives two arrays of integers from the user.
+Implement a method to concatenate the two arrays into a single array and display the concatenated array.
+
+    Input:
+        List 1: 5 99 10 1
+        List 2: 7 88 921 4
+        List 3: 5 99 10 1 7 88 921 4 (lista concatenata)
+
+    Solution 1:
+        Pas 1: Loop (0, n-1) of List 1 -> save to List 3
+        Pas 2: Loop (0, n-1) of List 2 -> save to List 3
+        Pas 3: Afisare
+
+    Solution 2:
+        list1.forEach(it -> list3.add(it));
+        list2.forEach(it -> list3.add(it));
+        sout -> list3
+
+    Solution 3:
+        list3 = IntStream.concat(Arrays.stream(list1), Arrays.stream(list2)).toArray();
+
+    Solution 4:
+        Collections.addAll(list3, list1);
+        Collections.addAll(list3, list2);
+
+Exercise 9: Array Intersection
+Write a program that receives two arrays of integers from the user.
+Implement a method to find and display the common elements (intersection) between the two arrays.
+
+    Input:
+            List 1: 5 99 10 1
+            List 2: 7 5 1 4
+            List 3: 5 1 (intersectia listelor)
+
+    Solution 1:
+        Pas 1:
+            Loop (0, n-1) -> iteratia primei liste
+                Loop (0, m-1) -> iteratia celei de a doua liste
+                    if element[i] == element[j] {
+                        list3.add(element[i]);
+                        break;
+                        }
+        Pas 2: Afisare list3
+
+    Solution 2:
+        list3 = Arrays.stream(list1)
+                         .distinct()
+                         .filter(x -> Arrays.stream(list2).anyMatch(y -> y == x))
+                         .toArray();
+
+    Solution 3:
+        lis3 = Arrays.stream(list1)
+                    .distinct()
+                    .filter(x -> Arrays.asList(list2).contains(x))
+                    .toArray(String[]::new);
+
+Exercise 10: Array Frequency
+Write a program that receives an array of integers from the user.
+Implement a method to find and display the frequency of each element in the array.
+
+    Input:
+        List -> 6 8 8 1 3 2 2 1 6 6 8
+
+    Output:
+        pt numarul 1 -> 1 repetie
+        pt numarul 2 -> 2 repetitii
+        pt numarul 3 -> 1 repetitie
+        pt numarul 6 -> 3 repetitii
+        pt numarul 8 -> 3 repetitii
+
+    Solution 1:
+        folosim Map <K,V> = new HashMap <K,V>
+        pt fiecare cheie inexistenta, adaugam 1
+        pt fiecare cheie existenta incrementam cu 1
+
+    Solution 2:
+        varianta cu o lista de frecventa
+        https://www.tutorialspoint.com/find-duplicate-elements-and-its-frequency-in-an-array-in-java

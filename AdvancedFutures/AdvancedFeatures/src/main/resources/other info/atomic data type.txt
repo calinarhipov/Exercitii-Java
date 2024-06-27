@@ -1,0 +1,26 @@
+The ImprovedBasket class uses AtomicInteger instead of Integer for representing the quantities of products in the basket. Here's why:
+
+Thread Safety: AtomicInteger is designed to support atomic operations in a multi-threaded environment.
+It provides thread-safe operations for incrementing, decrementing, and updating integer values without the need for explicit synchronization.
+
+In the context of a shopping basket, it's possible that multiple threads could concurrently add or remove products from the basket.
+By using AtomicInteger, the class ensures that the operations performed on the quantities are thread-safe and atomic, preventing race conditions and inconsistencies.
+Mutable Integer: Unlike Integer, which is immutable (its value cannot be changed once created), AtomicInteger is mutable.
+It allows modifying its value using methods like getAndAdd() or getAndDecrement().
+
+This mutability is useful in scenarios where the quantity of a product needs to be updated or modified dynamically,
+such as when adding or removing products from the basket.
+
+Atomic Operations: AtomicInteger provides atomic operations for common operations like incrementing
+(getAndIncrement() or incrementAndGet()) and decrementing (getAndDecrement() or decrementAndGet()) the value,
+as well as performing atomic updates with custom functions (getAndUpdate() or updateAndGet()).
+
+In the ImprovedBasket class, the atomic operations provided by AtomicInteger are used to increment or decrement the quantity of a product in a thread-safe manner,
+without the need for additional synchronization.
+
+By using AtomicInteger, the ImprovedBasket class ensures thread safety, allows for mutable quantities that can be modified concurrently,
+and provides atomic operations for updating the quantities.
+
+This is particularly important in scenarios where multiple threads may access or modify the basket concurrently, preventing data corruption or race conditions.
+
+iancujianu.business@gmail.com

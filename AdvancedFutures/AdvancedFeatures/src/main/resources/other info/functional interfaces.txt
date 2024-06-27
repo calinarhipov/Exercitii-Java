@@ -1,0 +1,29 @@
+Here's a beginner-friendly explanation of Supplier and Function:
+
+Supplier:
+
+    Imagine you have a store, and you need a way to get the price of a product. A Supplier is like a little helper that provides the price for you when you ask.
+    Instead of directly storing the price in your code, you use a Supplier<Double> price field. This field holds a reference to the Supplier helper.
+    When you want to know the price, you call price.get(). It's like asking the helper to give you the price value it holds.
+    This is useful because the Supplier allows you to get the price dynamically. You can change the way the price is calculated without changing the code that uses it.
+
+Function:
+
+    Imagine you have a product that may or may not be available on a specific date. You want a way to check if it's available without writing repetitive if statements.
+    A Function is like a little machine that takes in an input and gives you an output based on some rules you define.
+    In this case, you have a Function<LocalDate, Boolean> availabilityFunction. It means you give the Function a date, and it tells you if the product is available or not.
+    You use availabilityFunction.apply(productDate) to ask the machine to apply its rules to the productDate and give you the result.
+    This is helpful because the Function lets you define the rules for availability separately. You can reuse the same logic in different parts of your code, and you can easily change the rules without modifying the code that uses it.
+    Overall, Supplier and Function provide convenient ways to get values dynamically (like the price) and apply specific logic (like checking availability) without hard-coding values or conditions directly in your code. They make your code more flexible, reusable, and easier to read and maintain.
+
+Benefits:
+
+    Encapsulation: By encapsulating the price and availability logic within Supplier and Function interfaces, the implementation details are abstracted away from the GenericProduct class. This promotes better code organization and separation of concerns.
+
+    Flexibility: By using Supplier and Function, you can decouple the logic for obtaining the price and determining availability from the GenericProduct class itself. This allows for greater flexibility in changing or extending the behavior of the price and availability calculations without modifying the GenericProduct class. For example, you can easily swap out the supplier or function implementations at runtime or provide different implementations based on specific conditions.
+
+    Reusability: The use of functional interfaces allows you to reuse the same Supplier and Function implementations across different classes and scenarios. These interfaces provide a standard way to define and work with specific types of operations. This can lead to more modular and reusable code.
+
+    Code readability and maintainability: By using Supplier and Function, the intent of the code becomes clearer. The names price and availabilityFunction provide meaningful context, making the code easier to read and understand. Additionally, if the logic for obtaining the price or determining availability becomes more complex in the future, it can be encapsulated within separate implementations of Supplier and Function, keeping the code within the GenericProduct class clean and maintainable.
+
+In summary, using Supplier and Function promotes encapsulation, flexibility, reusability, and enhances code readability and maintainability by abstracting the price and availability logic away from the GenericProduct class.

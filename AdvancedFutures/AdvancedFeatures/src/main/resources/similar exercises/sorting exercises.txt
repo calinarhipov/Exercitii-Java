@@ -1,0 +1,34 @@
+Exercise 1: Bubble Sort (Ascending Order)
+Write a program that receives an array size (n) from the user.
+Next, receive n numbers from the user and store them in an array.
+Implement the Bubble Sort algorithm to sort this array in ascending order.
+Finally, display the sorted array.
+
+Exercise 2: Selection Sort (Descending Order)
+Write a program that prompts the user to enter an array size (n).
+Then, ask the user to input n numbers and store them in an array.
+Implement the Selection Sort algorithm to sort this array in descending order.
+Print the sorted array.
+
+Exercise 3: Insertion Sort (Ascending Order)
+Create a program that takes the size of an array (n) as input from the user.
+Then, ask the user to enter n numbers and store them in an array.
+Implement the Insertion Sort algorithm to sort the array in ascending order.
+Display the sorted array.
+
+Exercise 4: Merge Sort (Descending Order)
+Design a program that reads the size of an array (n) from the user.
+Ask the user to enter n numbers and store them in an array.
+Implement the Merge Sort algorithm to sort the array in descending order.
+Print the sorted array.
+
+Exercise 5: Quick Sort (Ascending Order)
+Develop a program that prompts the user to provide the size of an array (n).
+Obtain n numbers from the user and store them in an array.
+Implement the Quick Sort algorithm to sort the array in ascending order.
+Display the sorted array.
+
+Resurse:
+    https://www.youtube.com/watch?v=JU767SDMDvA&list=PL9xmBV_5YoZOZSbGAXAPIq1BeUf4j20pl
+    https://www.geeksforgeeks.org/bubble-sort/
+    https://devforum.ro/t/tabel-cu-complexitatile-algoritmilor-si-operatiilor-pe-diverse-structuri-de-date/4252
